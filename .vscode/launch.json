@@ -1,0 +1,64 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Run Backend (FastAPI)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "backend:app",
+                "--reload",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Run Frontend (Streamlit)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": [
+                "run",
+                "frontend.py",
+                "--server.port",
+                "8501"
+            ],
+            "console": "integratedTerminal"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run Full Project (Backend + Frontend)",
+            "configurations": [
+                "Run Backend (FastAPI)",
+                "Run Frontend (Streamlit)"
+            ],
+            "stopAll": true
+        }
+    ]
+}
