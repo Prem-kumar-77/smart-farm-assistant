@@ -1,0 +1,9 @@
+streamlit
+fastapi
+uvicorn
+onnxruntime
+numpy
+pandas
+requests
+pillow
+# add others you use
